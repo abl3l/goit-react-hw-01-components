@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import T from 'prop-types';
 import {
   Statistics,
   Title,
@@ -14,13 +14,13 @@ const Statistic = ({ stats }) => (
   <Statistics>
     <Title></Title>
     <Stats>
-      {stats.map(stat => (
+      {stats.map(el => (
         <StatsList
-          key={stat.id}
+          key={el.id}
           style={{ backgroundColor: `${generateColor()}` }}
         >
-          <Label>{stat.label}</Label>
-          <Percentage>{stat.percentage}</Percentage>
+          <Label>{el.label}</Label>
+          <Percentage>{el.percentage}</Percentage>
         </StatsList>
       ))}
     </Stats>
@@ -32,12 +32,12 @@ Statistic.defaultProps = {
 };
 
 Statistic.propTypes = {
-  title: PropTypes.string,
-  stats: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
+  title: T.string,
+  stats: T.arrayOf(
+    T.shape({
+      id: T.string.isRequired,
+      label: T.string.isRequired,
+      percentage: T.number.isRequired,
     }),
   ).isRequired,
 };

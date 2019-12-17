@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import T from 'prop-types';
 import {
   Profile,
   Description,
@@ -13,10 +13,10 @@ import {
   Quantity,
 } from './Profile.styled';
 
-const Profiles = ({ user }) => (
+const Profiles = ({ user, alt }) => (
   <Profile>
     <Description>
-      <Avatar src={user.avatar} alt={user.alt}></Avatar>
+      <Avatar src={user.avatar} alt={alt}></Avatar>
       <Name>{user.name}</Name>
       <Tag>@{user.tag}</Tag>
       <Location>{user.location}</Location>
@@ -39,22 +39,22 @@ const Profiles = ({ user }) => (
 );
 
 Profiles.defaultProps = {
-  alt: 'Avatar',
+  alt: 'User Avatar',
 };
 
 Profiles.propTypes = {
-  user: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    tag: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-    stats: PropTypes.shape({
-      followers: PropTypes.number.isRequired,
-      views: PropTypes.number.isRequired,
-      likes: PropTypes.number.isRequired,
+  user: T.shape({
+    name: T.string.isRequired,
+    tag: T.string.isRequired,
+    location: T.string.isRequired,
+    avatar: T.string.isRequired,
+    stats: T.shape({
+      followers: T.number.isRequired,
+      views: T.number.isRequired,
+      likes: T.number.isRequired,
     }),
   }).isRequired,
-  alt: PropTypes.string,
+  alt: T.string,
 };
 
 export default Profiles;

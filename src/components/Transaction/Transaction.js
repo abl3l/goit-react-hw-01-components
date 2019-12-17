@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import T from 'prop-types';
 import {
   Transactions,
   Head,
@@ -18,11 +18,11 @@ const TransactionHistory = ({ transactions }) => (
       </Head>
     </thead>
     <tbody>
-      {transactions.map(transaction => (
-        <Row key={transaction.id}>
-          <RowItem>{transaction.type}</RowItem>
-          <RowItem>{transaction.amount}</RowItem>
-          <RowItem>{transaction.currency}</RowItem>
+      {transactions.map(el => (
+        <Row key={el.id}>
+          <RowItem>{el.type}</RowItem>
+          <RowItem>{el.amount}</RowItem>
+          <RowItem>{el.currency}</RowItem>
         </Row>
       ))}
     </tbody>
@@ -30,12 +30,12 @@ const TransactionHistory = ({ transactions }) => (
 );
 
 TransactionHistory.propTypes = {
-  transactions: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      amount: PropTypes.string.isRequired,
-      currency: PropTypes.string.isRequired,
+  transactions: T.arrayOf(
+    T.shape({
+      id: T.string.isRequired,
+      type: T.string.isRequired,
+      amount: T.string.isRequired,
+      currency: T.string.isRequired,
     }),
   ).isRequired,
 };
