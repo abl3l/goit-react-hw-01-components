@@ -22,7 +22,14 @@ const FriendList = ({ friends }) => (
 );
 
 FriendList.propTypes = {
-  friends: T.arrayOf(T.shape().isRequired).isRequired,
+  friends: T.arrayOf(
+    T.shape({
+      id: T.number.isRequired,
+      isOnline: T.bool.isRequired,
+      avatar: T.string.isRequired,
+      name: T.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default FriendList;

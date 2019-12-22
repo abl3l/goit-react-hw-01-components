@@ -5,11 +5,7 @@ export const Statistics = styled.section`
   text-align: center;
   padding-top: 20px;
 `;
-export const Title = styled.h2`
-  padding-bottom: 10px;
-  text-transform: uppercase;
-  font-weight: 500;
-`;
+
 export const Stats = styled.ul`
   padding: 0;
   display: flex;

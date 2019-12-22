@@ -2,7 +2,6 @@ import React from 'react';
 import T from 'prop-types';
 import {
   Statistics,
-  Title,
   Stats,
   StatsList,
   Label,
@@ -12,15 +11,14 @@ import generateColor from './generateColor';
 
 const Statistic = ({ stats }) => (
   <Statistics>
-    <Title></Title>
     <Stats>
       {stats.map(el => (
         <StatsList
-          key={el.id}
+          key={stats.id}
           style={{ backgroundColor: `${generateColor()}` }}
         >
-          <Label>{el.label}</Label>
-          <Percentage>{el.percentage}</Percentage>
+          <Label>{stats.label}</Label>
+          <Percentage>{stats.elpercentage}</Percentage>
         </StatsList>
       ))}
     </Stats>
