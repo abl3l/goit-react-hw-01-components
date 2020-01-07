@@ -1,5 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
+import user from './user.json';
 import {
   Profile,
   Description,
@@ -13,26 +14,29 @@ import {
   Quantity,
 } from './Profile.styled';
 
-const Profiles = ({ user, alt }) => (
+const { avatar, name, tag, location } = user;
+const { followers, views, likes } = user.stats;
+
+const Profiles = ({ alt }) => (
   <Profile>
     <Description>
-      <Avatar src={user.avatar} alt={alt}></Avatar>
-      <Name>{user.name}</Name>
-      <Tag>@{user.tag}</Tag>
-      <Location>{user.location}</Location>
+      <Avatar src={avatar} alt={alt}></Avatar>
+      <Name>{name}</Name>
+      <Tag>@{tag}</Tag>
+      <Location>{location}</Location>
     </Description>
     <Stats>
       <List>
         <Label>Followers</Label>
-        <Quantity>{user.stats.followers}</Quantity>
+        <Quantity>{followers}</Quantity>
       </List>
       <List>
         <Label>Views</Label>
-        <Quantity>{user.stats.views}</Quantity>
+        <Quantity>{views}</Quantity>
       </List>
       <List>
         <Label>Likes</Label>
-        <Quantity>{user.stats.likes}</Quantity>
+        <Quantity>{likes}</Quantity>
       </List>
     </Stats>
   </Profile>

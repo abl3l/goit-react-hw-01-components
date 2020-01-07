@@ -14,11 +14,11 @@ const Statistic = ({ stats }) => (
     <Stats>
       {stats.map(el => (
         <StatsList
-          key={stats.id}
+          key={el.id}
           style={{ backgroundColor: `${generateColor()}` }}
         >
-          <Label>{stats.label}</Label>
-          <Percentage>{stats.elpercentage}</Percentage>
+          <Label>{el.label}</Label>
+          <Percentage>{el.elpercentage}</Percentage>
         </StatsList>
       ))}
     </Stats>
